@@ -29,17 +29,15 @@ describe Airport do
 		
 	# end
 
-	 it "should randomly return stormy or sunny - but more often sunny" do
+	 it "should randomly return stormy or sunny" do
         expect(airport.weather).to satisfy{|s| ["stormy", "sunny"].include?(s)}
         # this is completely random between sunny and stormy
     end
 
-    # # it "should not take off if weather is stormy" do
-    # # 	airport.stormy
-    # # 	expect{airport.take_off(plane)}.to raise_error(RuntimeError, 'Too stormy to take off')
-    # 	# expect(airport.weather).to satisfy{|s| ["stormy"].include?(s)}
-
-    # end
+    it "should not take off if weather is stormy" do
+    	airport.stormy?
+    	expect{airport.take_off_if_stormy(plane)}.to raise_error(RuntimeError, 'Too stormy to take off')
+	end
 
 	    # Include a weather condition using a module.
     # The weather must be random and only have two states "sunny" or "stormy".

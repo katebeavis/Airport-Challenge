@@ -17,7 +17,6 @@ class Airport
 
 	def take_off(plane)
 		raise 'Airport is empty' if empty?
-		# raise 'Too stormy to take off' if weather = "stormy"
 		@planes.delete(plane)
 	end
 
@@ -33,8 +32,12 @@ class Airport
 		create_weather = ["sunny", "stormy"].sample
 	end
 
-	def stormy
-		create_weather = "stormy"
+	def stormy?
+		storm = "stormy"
+	end
+
+	def take_off_if_stormy(plane)
+		raise 'Too stormy to take off' if weather = "stormy"
 	end
 
 
