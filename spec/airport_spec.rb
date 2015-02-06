@@ -17,12 +17,37 @@ describe Airport do
 
 	it 'should not accept planes and raise an error when full' do
 		10.times {airport.land(plane)}
-		expect{airport.land(plane)}.to raise_error(RuntimeError, 'Airport is full')
+		expect{airport.land(plane)}.to raise_error(RuntimeError, 'Airport is full, the plane cannot land')
 	end
 
-	# it 'shouldn\'t let a plane take off that isn\'t there' do
+	it 'shouldn\'t let a plane take off that isn\'t there' do
+		airport.full?
+		expect{airport.take_off(plane)}.to raise_error(RuntimeError, 'Airport is empty')
+	end
+
+	# it 'should randomly generate weather conditions' do
 		
 	# end
+
+	 it "should randomly return stormy or sunny - but more often sunny" do
+        expect(airport.weather).to satisfy{|s| ["stormy", "sunny"].include?(s)}
+        # this is completely random between sunny and stormy
+    end
+
+    # # it "should not take off if weather is stormy" do
+    # # 	airport.stormy
+    # # 	expect{airport.take_off(plane)}.to raise_error(RuntimeError, 'Too stormy to take off')
+    # 	# expect(airport.weather).to satisfy{|s| ["stormy"].include?(s)}
+
+    # end
+
+	    # Include a weather condition using a module.
+    # The weather must be random and only have two states "sunny" or "stormy".
+    # Try and take off a plane, but if the weather is stormy, the plane can not take off and must remain in the airport.
+    # 
+    # This will require stubbing to stop the random return of the weather.
+    # If the airport has a weather condition of stormy,
+    # the plane can not land, and must not be in the airport
 
 
 
