@@ -1,10 +1,12 @@
-require 'airport'
-require 'plane'
+require './lib/airport'
+require './lib/plane'
+require './lib/weather'
 
 describe Airport do
 
 	let(:airport) {Airport.new(capacity: 10) }
 	let(:plane) {Plane.new}
+	let(:weather) {Weather.new}
 
 	it 'should let planes land' do
 		expect{airport.land(plane)}.to change{airport.plane_count}.by 1
@@ -25,19 +27,16 @@ describe Airport do
 		expect{airport.take_off(plane)}.to raise_error(RuntimeError, 'Airport is empty')
 	end
 
-	# it 'should randomly generate weather conditions' do
-		
+
+	 # it "should randomly return stormy or sunny" do
+  #       expect(airport.sunny_storm).to satisfy{|s| ["stormy", "sunny"].include?(s)}
+  #       # this is completely random between sunny and stormy
+  #   end
+
+ #    it "should not take off if weather is stormy" do
+ #    	airport.stormy?
+ #    	expect{airport.take_off_if_stormy(plane)}.to raise_error(RuntimeError, 'Too stormy to take off')
 	# end
-
-	 it "should randomly return stormy or sunny" do
-        expect(airport.weather).to satisfy{|s| ["stormy", "sunny"].include?(s)}
-        # this is completely random between sunny and stormy
-    end
-
-    it "should not take off if weather is stormy" do
-    	airport.stormy?
-    	expect{airport.take_off_if_stormy(plane)}.to raise_error(RuntimeError, 'Too stormy to take off')
-	end
 
 	    # Include a weather condition using a module.
     # The weather must be random and only have two states "sunny" or "stormy".
