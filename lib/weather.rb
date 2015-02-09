@@ -3,14 +3,9 @@ module Weather
 
 def weather
 	@weather
-	# @weather=random_weather
+	@weather=random_weather
 end
 # attr_accessor :weather
-
-# def weather
-# 	rand (100)
-# 	puts "sunny" if number <= 20
-# end
 
 def random_weather
 	rand(1..10)

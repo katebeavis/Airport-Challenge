@@ -1,4 +1,5 @@
 require_relative 'Weather'
+require './lib/plane'
 
 class Airport
 	DEFAULT_CAPACITY = 10
@@ -8,6 +9,7 @@ class Airport
 	def initialize(options = {})
 		@capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
 		@planes = []
+		@weather = random_weather
 	end
 
 	def plane_count
@@ -17,6 +19,7 @@ class Airport
 	def land(plane)
 		raise 'Airport is full, the plane cannot land' if full?
 		raise 'Too stormy to land' if stormy?
+		plane.land?
 		@planes << plane
 	end
 
@@ -28,6 +31,7 @@ class Airport
 	def take_off(plane)
 		raise 'Airport is empty' if empty?
 		raise 'Too stormy to take off' if stormy?
+		plane.take_off?
 		@planes.delete(plane)
 	end
 

@@ -8,6 +8,10 @@ describe Airport do
 	let(:plane) {Plane.new}
 	let(:weather) {Weather.new}
 
+	it 'should have no planes when created' do
+		expect(airport.plane_count).to eq 0
+	end
+
 	it 'should let planes land' do
 		expect{airport.land(plane)}.to change{airport.plane_count}.by 1
 	end
