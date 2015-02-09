@@ -6,11 +6,15 @@ describe Airport do
 
 	let(:airport) {Airport.new(capacity: 10) }
 	let(:plane) {Plane.new}
-	let(:weather) {Weather.new}
 
 	it 'should have no planes when created' do
 		expect(airport.plane_count).to eq 0
 	end
+
+before do
+	allow(airport).to receive(:stormy?).and_return false
+end
+
 
 	it 'should let planes land' do
 		plane.land?
@@ -26,6 +30,8 @@ describe Airport do
 		10.times {airport.land(plane)}
 		expect{airport.land(plane)}.to raise_error(RuntimeError, 'Airport is full, the plane cannot land')
 	end
+
+
 
 	it 'shouldn\'t let a plane take off that isn\'t there' do
 		airport.full?

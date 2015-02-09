@@ -9,7 +9,7 @@ class Airport
 	def initialize(options = {})
 		@capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
 		@planes = []
-		@weather = check_weather
+		@weather = stormy?
 	end
 
 	def plane_count
