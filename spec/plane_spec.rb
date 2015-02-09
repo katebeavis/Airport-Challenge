@@ -24,11 +24,4 @@ describe Plane do
 		expect(plane).not_to be_flying
 	end
 
-
-
-
-
-
-
-
 end

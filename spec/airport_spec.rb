@@ -13,7 +13,6 @@ describe Airport do
 	end
 
 	it 'should let planes land' do
-		# allow(airport).to receive(:check_weather).and_return(:sunny)
 		plane.land?
 		expect{airport.land(plane)}.to change{airport.plane_count}.by 1
 	end
@@ -32,35 +31,5 @@ describe Airport do
 		airport.full?
 		expect{airport.take_off(plane)}.to raise_error(RuntimeError, 'Airport is empty')
 	end
-
-	    # Include a weather condition using a module.
-    # The weather must be random and only have two states "sunny" or "stormy".
-    # Try and take off a plane, but if the weather is stormy, the plane can not take off and must remain in the airport.
-    # 
-    # This will require stubbing to stop the random return of the weather.
-    # If the airport has a weather condition of stormy,
-    # the plane can not land, and must not be in the airport
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 end
