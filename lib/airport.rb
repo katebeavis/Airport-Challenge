@@ -9,7 +9,7 @@ class Airport
 	def initialize(options = {})
 		@capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
 		@planes = []
-		@weather = random_weather
+		@weather = check_weather
 	end
 
 	def plane_count
@@ -17,16 +17,11 @@ class Airport
 	end
 
 	def land(plane)
-		raise 'Airport is full, the plane cannot land' if full?
 		raise 'Too stormy to land' if stormy?
+		raise 'Airport is full, the plane cannot land' if full?
 		plane.land?
 		@planes << plane
 	end
-
-	# def land_weather(plane)
-	# 	raise "Too Stormy!" if random_weather <= 20
-	# 	land
-	# end
 
 	def take_off(plane)
 		raise 'Airport is empty' if empty?
