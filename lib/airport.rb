@@ -37,27 +37,4 @@ class Airport
 	def empty?
 		plane_count == 0
 	end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
