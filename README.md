@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/katebeavis/Airport-Challenge/badges/gpa.svg)](https://codeclimate.com/github/katebeavis/Airport-Challenge)
+[![Code Climate](https://codeclimate.com/github/katebeavis/Airport-Challenge/badges/gpa.svg)](https://codeclimate.com/github/katebeavis/Airport-Challenge) [![Test Coverage](https://codeclimate.com/github/katebeavis/Airport-Challenge/badges/coverage.svg)](https://codeclimate.com/github/katebeavis/Airport-Challenge) [![Build Status](https://travis-ci.org/katebeavis/Airport-Challenge.svg?branch=master)](https://travis-ci.org/katebeavis/Airport-Challenge)
 # Airport Challenge
 
 The Airport challenge was the first weekend challenge at Makers Academy.
